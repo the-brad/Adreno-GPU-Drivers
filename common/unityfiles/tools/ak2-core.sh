@@ -1,7 +1,7 @@
 ## AnyKernel methods (DO NOT CHANGE)
 # set up extracted files and directories
 ramdisk=$INSTALLER/ramdisk;
-bin=$INSTALLER/common/tools;
+bin=$INSTALLER/common/unityfiles/tools;
 split_img=$INSTALLER/split_img;
 patch=$INSTALLER/patch;
 
@@ -24,7 +24,7 @@ reset_ak() {
     cp -af $i $(dirname $INSTALLER/*-files/current);
   done;
   rm -rf $ramdisk $split_img $patch $INSTALLER/rdtmp $INSTALLER/boot.img $INSTALLER/*-new* $INSTALLER/*-files/current;
-  . $INSTALLER/common/tools/ak2-core.sh $FD;
+  . $INSTALLER/common/unityfiles/tools/ak2-core.sh $FD;
 }
 
 # dump boot and extract ramdisk

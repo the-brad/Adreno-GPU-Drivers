@@ -8,6 +8,7 @@ OUTFD=<OUTFD>
 BOOTMODE=<BOOTMODE>
 MAGISK=<MAGISK>
 slot=<SLOT>
+INSTALL=true
 
 ui_print() {
   $BOOTMODE && echo "$1" || echo -e "ui_print $1\nui_print" >> /proc/self/fd/$OUTFD

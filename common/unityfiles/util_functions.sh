@@ -334,20 +334,19 @@ prop_process() {
 
 ak2() {
   ui_print "   Using Anykernel2 by osm0sis @ xda-developers"
-  rm -f $INFO
   sed -i -e "s|<INSTALLER>|$INSTALLER|" -e "s|<OUTFD>|$OUTFD|" -e "s|<BOOTMODE>|$BOOTMODE|" -e "s|<SLOT>|$SLOT|" -e "s|<MAGISK>|$MAGISK|" $INSTALLER/common/anykernel.sh
-  mkdir -p $INSTALLER/common/bin
-  cd $INSTALLER/common
-  local BB=$INSTALLER/common/tools/busybox
+  mkdir -p $INSTALLER/common/unityfiles/bin
+  cd $INSTALLER/common/unityfiles
+  local BB=$INSTALLER/common/unityfiles/tools/busybox
   chmod 755 $BB
-  $BB chmod -R 755 $INSTALLER/common/tools $INSTALLER/common/bin
+  $BB chmod -R 755 $INSTALLER/common/unityfiles/tools $INSTALLER/common/unityfiles/bin
   for i in $($BB --list); do
-    $BB ln -s $BB $INSTALLER/common/bin/$i
+    $BB ln -s $BB $INSTALLER/common/unityfiles/bin/$i
   done
-  if [ $? != 0 -o -z "$(ls $INSTALLER/common/bin)" ]; then
+  if [ $? != 0 -o -z "$(ls $INSTALLER/common/unityfiles/bin)" ]; then
     abort "   ! Recovery busybox setup failed!"
   fi
-  PATH="$INSTALLER/common/bin:$PATH" $BB ash $INSTALLER/common/anykernel.sh $2
+  PATH="$INSTALLER/common/unityfiles/bin:$PATH" $BB ash $INSTALLER/common/anykernel.sh $2
   if [ $? != "0" ]; then
     abort "   ! Install failed!"
   fi
