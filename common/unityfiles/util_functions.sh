@@ -332,6 +332,27 @@ prop_process() {
   $MAGISK || chmod 0700 $PROP
 }
 
+ak2() {
+  ui_print "   Using Anykernel2 by osm0sis @ xda-developers"
+  rm -f $INFO
+  sed -i -e "s|<INSTALLER>|$INSTALLER|" -e "s|<OUTFD>|$OUTFD|" -e "s|<BOOTMODE>|$BOOTMODE|" -e "s|<SLOT>|$SLOT|" -e "s|<MAGISK>|$MAGISK|" $INSTALLER/common/anykernel.sh
+  mkdir -p $INSTALLER/common/bin
+  cd $INSTALLER/common
+  local BB=$INSTALLER/common/tools/busybox
+  chmod 755 $BB
+  $BB chmod -R 755 $INSTALLER/common/tools $INSTALLER/common/bin
+  for i in $($BB --list); do
+    $BB ln -s $BB $INSTALLER/common/bin/$i
+  done
+  if [ $? != 0 -o -z "$(ls $INSTALLER/common/bin)" ]; then
+    abort "   ! Recovery busybox setup failed!"
+  fi
+  PATH="$INSTALLER/common/bin:$PATH" $BB ash $INSTALLER/common/anykernel.sh $2
+  if [ $? != "0" ]; then
+    abort "   ! Install failed!"
+  fi
+}
+
 remove_old_aml() {
   ui_print " "
   ui_print "   ! Old AML Detected! Removing..."

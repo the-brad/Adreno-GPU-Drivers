@@ -7,6 +7,9 @@ Unity Installer allows 1 zip to work for multiple devices and root solutions. [M
 * All root solutions (requires init.d support if not using magisk or supersu. Try [Init.d Injector](https://forum.xda-developers.com/android/software-hacking/mod-universal-init-d-injector-wip-t3692105))
 
 ## Change Log
+### v1.6 - x.xx.2018
+* Add Anykernel2 by Osm0sis @xda-developers, Unity is now a one stop shop for any system/vendor/boot modifications
+
 ### v1.5.5 - 7.17.2018
 * Fix propfile removal on system uninstalls
 * Update functions with magisk 16.6 stuff
