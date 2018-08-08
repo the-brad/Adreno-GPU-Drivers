@@ -24,7 +24,7 @@ block=auto;
 
 ## AnyKernel methods (DO NOT CHANGE)
 # import patching functions/variables - see for reference
-. $INSTALLER/common/tools/ak2-core.sh
+. $INSTALLER/common/unityfiles/tools/ak2-core.sh
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
