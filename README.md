@@ -8,7 +8,7 @@ It includes Anykernel2 by Osm0sis @xda-developers as well in the event the insta
 * All root solutions (requires init.d support if not using magisk or supersu. Try [Init.d Injector](https://forum.xda-developers.com/android/software-hacking/mod-universal-init-d-injector-wip-t3692105))
 
 ## Change Log
-### v1.0 - 8.9.2018
+### v1.5.5 - 8.9.2018
 * Initial release
 
 ## Source Code
