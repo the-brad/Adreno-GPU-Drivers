@@ -29,7 +29,7 @@ ZIP=$3
 MAGISK=true
 DYNAMICOREO=false
 DYNAMICAPP=false
-case $ZIP in
+case $(basename $ZIP) in
   *sysover*|*Sysover*|*SYSOVER*) SYSOVERRIDE=true;;
   *) SYSOVERRIDE=false;;
 esac
