@@ -6,6 +6,7 @@
 INSTALLER=<INSTALLER>
 OUTFD=<OUTFD>
 BOOTMODE=<BOOTMODE>
+DEBUG=<DEBUG>
 MAGISK=<MAGISK>
 slot=<SLOT>
 INSTALL=true
@@ -31,6 +32,12 @@ block=auto;
 # set permissions/ownership for included ramdisk files
 chmod -R 750 $ramdisk/*
 chown -R root:root $ramdisk/*
+
+#DEBUG
+if $DEBUG; then
+  $BOOTMODE || exec 3>&1 1>&2 2>&3 2>/data/media/0/$MODID\AK2-log.log
+  set -x
+fi
 
 ## AnyKernel install
 ui_print "   Unpacking boot image..."

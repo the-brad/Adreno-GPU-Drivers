@@ -334,7 +334,7 @@ prop_process() {
 
 ak2() {
   ui_print "   Using Anykernel2 by osm0sis @ xda-developers"
-  sed -i -e "s|<INSTALLER>|$INSTALLER|" -e "s|<OUTFD>|$OUTFD|" -e "s|<BOOTMODE>|$BOOTMODE|" -e "s|<SLOT>|$SLOT|" -e "s|<MAGISK>|$MAGISK|" $INSTALLER/common/anykernel.sh
+  sed -i -e "s|<INSTALLER>|$INSTALLER|" -e "s|<OUTFD>|$OUTFD|" -e "s|<BOOTMODE>|$BOOTMODE|" -e "s|<SLOT>|$SLOT|" -e "s|<MAGISK>|$MAGISK|" -e "s|<DEBUG>|$DEBUG|" $INSTALLER/common/anykernel.sh
   mkdir -p $INSTALLER/common/unityfiles/bin
   cd $INSTALLER/common/unityfiles
   if [ -f "$INSTALLER/common/unityfiles/tools/busybox" ]; then
